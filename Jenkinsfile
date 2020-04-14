@@ -6,8 +6,7 @@ pipeline {
                 echo 'Running build automation'
                 sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
-            }
-        },
+            },
         stage("DeploytoStaging")
         { // run only when the code is merged to branch 'master'
             when {
@@ -67,7 +66,7 @@ pipeline {
                         continueOnError: false, // determines if the pipeline should proceed on error
                         publishers:[
                             sshPublisherDesc( // desc of user information used to connect to the server
-                                configName: 'staging', // name of the staging server name set while configuring Jenkins
+                                configName: 'production', // name of the staging server name set while configuring Jenkins
                                 sshCredentials: [ // credentials allowing jenkins to connect to staging/production server
                                     username: '$USERNAME',
                                     encryptedPassphrase: '$USERPASS'
@@ -87,6 +86,8 @@ pipeline {
                 }
             }
 
-        },
+        }
+
     }
+}
 }
