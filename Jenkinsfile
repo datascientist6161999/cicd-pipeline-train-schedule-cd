@@ -10,7 +10,7 @@ pipeline {
         stage("DeploytoStaging")
         { // run only when the code is merged to branch 'master'
             when {
-                branch 'master'
+                branch 'solution-adityabhimireddy'
             }
          // steps executed on the server
             steps{
@@ -49,7 +49,7 @@ pipeline {
         stage("DeploytoProduction")
         { // run only when the code is merged to branch 'master'
             when {
-                branch 'master'
+                branch 'solution-adityabhimireddy'
             }
          // steps executed on the server
             steps{
