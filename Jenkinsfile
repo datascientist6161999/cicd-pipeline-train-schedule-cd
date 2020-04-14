@@ -7,7 +7,7 @@ pipeline {
                 sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
-        },
+        }
         stage('DeploytoStaging')
         { // run only when the code is merged to branch 'master'
             when {
@@ -46,7 +46,7 @@ pipeline {
                 }
             }
 
-        },
+        }
         stage('DeploytoProduction')
         { // run only when the code is merged to branch 'master'
             when {
